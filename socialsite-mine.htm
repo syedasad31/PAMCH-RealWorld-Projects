@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Web Social</title>
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+        <link rel="stylesheet" href="fontawesome/css/all.css">
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&family=Nunito&family=Raleway&display=swap');
+
+            * {
+                margin: 0;
+                box-sizing: border-box;
+                font-family: 'Raleway', sans-serif;
+            }
+
+            :root {
+                --theme-color: #3edaa2;
+                --hover-color: #eeeaea8f;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            header {
+                background-color: var(--theme-color);
+                width: 100%;
+                display: flex;
+                box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+                position: fixed;
+                top: 0;
+                z-index: 100;
+            }
+
+            header .logo {
+                flex-basis: 10%;
+            }
+
+            .logo img {
+                width: 50px;
+                height: 50px;
+                padding: 5px;
+            }
+
+            .navbar {
+                flex-basis: 90%;
+                display: flex;
+                justify-content: right;
+                align-items: center;
+                position: relative;
+            }
+
+           /*  .navbar li > ul {
+                display: flex;
+                flex-direction: column;
+            } */
+
+            .icon-nav {
+                font-size: 30px;
+            }
+
+            .drop-icons {
+                font-size: 15px;
+                color: white;
+                background-color: var(--theme-color);
+                margin-right: 5px;
+                height: 20px;
+                width: 20px;
+                border-radius: 50px;
+                line-height: 20px;
+                text-align: center;
+            }
+
+            .navbar a {
+                color: white;
+                font-size: 30px;
+            }
+
+            .submenu a, .submenu-1 a {
+                color: var(--theme-color);
+                font-size: 1rem;
+            }
+
+            .navbar .menu {
+                flex-basis: 65%;
+                display: flex;
+                position: relative;
+                align-items: center;
+            }
+
+            .navbar .sideMenu {
+                flex-basis: 35%;
+                display: flex;
+                position: relative;
+                align-items: center;
+
+            }
+
+            .user-icon {
+                margin: 0;
+                padding: 0;
+            }
+
+            .user-icon img {
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                border: 1px white solid;
+            }
+            .online {
+                position: relative;
+            }
+            .online::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                background-color: #15f1a183;
+                border: 1px white solid;
+                border-radius: 50%;
+                width: 10px;
+                height: 10px;
+            }
+
+            .navbar li {
+                padding-inline: 20px;
+            }
+
+            .search {
+                width: 250px;
+                display: flex;
+                background-color: azure;
+                border-radius: 20px;
+                font-size: 15px;
+                padding-block: 7px;
+            }
+
+            .search i {
+                margin-left: 15px;
+                margin-right: 10px;
+                color: black;
+                
+            }
+
+            .search input {
+                width: 100%;
+                outline: none;
+                border: none;
+                background-color: transparent;
+                padding-right: 10px;
+            }
+
+            .submenu {
+                position: absolute;
+                top: 100%;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+                display: none;
+            }
+
+            .submenu-1 {
+                position: absolute;
+                top: 90%;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+                display: none;
+            }
+
+            .submenu li, .submenu-1 li {
+                padding-block: 20px;
+                padding-right: 15px;
+            }
+
+            .submenu li:hover, .submenu-1 li:hover, .secondlevelMenu li:hover {
+                background-color: var(--hover-color);
+            }
+
+            .secondlevelMenu {
+                position: absolute;
+                top: 20%;
+                left: 100%;
+                border-radius: 10px;
+                box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+                background-color: white;
+                width: 100%;
+                display: none;
+            }
+
+            .navbar li:hover > ul {
+                display: block;
+            }
+
+            .navbar > input[name="resNav"] {
+                display: none;
+            }
+            
+            .navbar label > input, .navbar label > i {
+                display: none;
+            }
+
+
+
+            @media screen and (max-width:745px) {
+                .logo {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+
+                header {
+                    height: 48px;
+                    display: unset;
+                }
+
+                .navbar {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 60vw;
+                    height: auto;
+                    background-color: var(--theme-color);
+                    display: block;
+                    transform: translate(-100%, 0);
+                    transition: 0.5s all ease-out;
+                    border-bottom-right-radius: 15px;
+                    border-bottom-left-radius: 15px;
+
+                    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+                }
+
+                .navbar ul {
+                    display: block;
+                    position: unset;
+                }
+
+                .navbar .menu, .navbar .sideMenu {
+                    display: block;
+                }
+                .navbar .menu > li, .navbar .sideMenu  > li{
+                    border-bottom: 1px white solid;
+                }
+
+                .navbar .sideMenu > li:last-child {
+                    border-bottom: none;
+                }
+
+                .submenu, .submenu-1, .secondlevelMenu {
+                    background-color: var(--theme-color);
+                    box-shadow: none;
+                    color: white;
+                    display: block;
+                    text-align: left;
+                }
+
+                .submenu li:hover, .submenu-1 li:hover, .secondlevelMenu li:hover {
+                    background-color: unset;
+                }
+
+                .submenu a, .submenu-1 a {
+                    color: unset;
+                }
+
+                .navbar li > ul {
+                    display: none;
+                }
+
+                .navbar .menu > li, .navbar .sideMenu > li {
+                    padding-block: 10px;
+                }
+
+                .navbar .menu > li:hover, .navbar .sideMenu > li:hover {
+                    border-left: 5px white solid;
+                }
+
+                .online::after {
+                    right: unset;
+                    left: 30px;
+                }
+
+                .search {
+                    width: 100%;
+                }
+                .search input {
+                    width: 100%;
+                }
+
+                .navbar .resNav {
+                    position: absolute;
+                    background-color: black;
+                    width: 40px;
+                    height: 40px;
+                    top: 5px;
+                    left: calc(100% - 3px); /* box shadow of navbar */
+                    padding: 10px;
+                }
+
+                .navbar .resNav span {
+                    display: block;
+                    background-color: white;
+                    width: 20px;
+                    height: 2px;
+                    margin-block: 3px;
+                    transition: 1s;
+                }
+
+                .navbar:has(input[name="resNav"]:checked) {
+                    transform: translate(0, 0);
+                }
+
+                /* .navbar:has(input[name="resNav"]:not(:checked)) {
+                    transition: unset;
+                } */
+
+                .navbar:has(input[name="resNav"]:checked)
+                .resNav span:nth-child(2) {
+                    opacity: 0;
+                    transition: 0s;
+                }
+
+                .navbar:has(input[name="resNav"]:checked)
+                .resNav span:nth-child(1) {
+                    transform: rotate(45deg) translate(3px, 5px);
+                }
+
+                .navbar:has(input[name="resNav"]:checked)
+                .resNav span:nth-child(3) {
+                    transform: rotate(-45deg) translate(1px, -5px);
+                }
+
+
+
+                .navbar label > i {
+                    display: block;
+                    float: right;
+                    color: black;
+                    margin-right: 20px;
+                }
+                
+
+                .navbar li:hover > ul {
+                    display: none;
+                }
+
+
+                /* .navbar li:has(input[type="checkbox"]:checked)  {
+                    
+                } */
+
+                .navbar label input:checked ~ i {
+                    transform: rotate(180deg);
+                    /* background-color: grey;
+                    border-radius: 50%;
+                    width: 18px;
+                    height: 18px;
+                    background-position: center; */
+                    /* border-radius: 50%;
+                    border: 2px white solid; */
+                }
+
+                .navbar label:has(input:checked) ~ ul {
+                    display: block;
+                }
+            }
+
+
+        </style>
+        
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <img src="logo.JPG" alt="">
+            </div>
+
+
+            <nav class="navbar">
+                <input type="checkbox" name="resNav" id="resNav">
+                <label for="resNav" class="resNav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <ul class="menu">
+                    <li><a href="#"><i class="fa-solid fa-house icon-nav"></i></a></li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-user-gear icon-nav"></i>
+                        </a>
+                        <label>
+                            <input type="checkbox">
+                            <i class="fa-solid fa-angle-down"></i>
+                        </label>
+                        
+                        <ul class="submenu">
+                            <li><a href="#"><i class="fa-solid fa-user drop-icons"></i>My Profile</a></li>
+                            <li>
+                                <a href="#">
+                                <i class="fa-solid fa-gear drop-icons"></i>
+                                Settings</a>
+                                
+                                <label>
+                                    <input type="checkbox">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </label>
+                                <ul class="secondlevelMenu">
+                                    <li><a href="#"><i class="fa-solid fa-key drop-icons"></i>Admin</a></li>
+                                    <li><a href="#"><i class="fa-solid fa-credit-card drop-icons"></i>Payments</a></li>
+                                    <li><a href="#"><i class="fa-solid fa-right-from-bracket drop-icons"></i>Logout</a></li>
+                                </ul>
+                            
+                            </li>
+                            <li><a href="#"><i class="fa-solid fa-clock-rotate-left drop-icons"></i>Memories</a></li>
+                            <li><a href="#"><i class="fa-solid fa-user-group drop-icons"></i>Find Friends</a></li>
+                            <li><a href="#"><i class="fa-solid fa-location-dot drop-icons"></i>Your Location</i></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fa-solid fa-video icon-nav"></i></a></li>
+                    <li>
+                        <a href="#">
+                            <div class="search">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" name="" id="" placeholder="Search">
+                            </div>
+                        </a>
+                    </li>
+                    
+                </ul>
+
+
+                <ul class="sideMenu">
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-bell icon-nav"></i>
+                        </a>
+
+                        <label>
+                            <input type="checkbox">
+                            <i class="fa-solid fa-angle-down"></i>
+                        </label>
+                        <ul class="submenu-1">
+                            <li>
+                                <a href="#">
+                                <i class="fa-solid fa-pen-to-square drop-icons"></i>
+                                Posts</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <i class="fa-solid fa-star drop-icons"></i>
+                                Favorites</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <i class="fa-solid fa-bullhorn drop-icons"></i>
+                                Ads Manager</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <i class="fa-solid fa-flag drop-icons"></i>
+                                Pages</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <i class="fa-solid fa-calendar-check drop-icons"></i>
+                                Events</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="user-icon online">
+                                <img src="images/profile.png" alt="">
+                            </div> 
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </body>
+</html>

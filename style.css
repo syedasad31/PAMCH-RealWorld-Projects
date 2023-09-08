@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&family=Nunito&family=Raleway&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+
+:root {
+    --theme-color: #3edaa2;
+    --hover-color: #eeeaea8f;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    background-color: var(--theme-color);
+    width: 100%;
+    display: flex;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+header a {
+    color: white;
+}
+
+.logo {
+    width: 10%;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.navbar {
+    display: flex;
+    width: 90%;
+    justify-content: right;
+    position: relative;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    padding-inline: 20px;
+    padding-top: 9px;
+}
+
+.navbar .menu {
+    flex-basis: 65%;
+    text-align: center;
+    position: relative;
+}
+
+.navbar .sideMenu {
+    flex-basis: 35%;
+    position: relative;
+}
+
+.icon-nav {
+    font-size: 30px;
+}
+
+.search {
+    display: flex;
+    background-color: azure;
+    width: 250px;
+    padding-block: 8px;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+.search i {
+    color: #4d4a4a;
+    margin-left: 15px;
+    padding-right: 10px;
+}
+
+.search input {
+    width: 100%;
+    outline: none;
+    border: none;
+    background: transparent;
+}
+
+.user-icon img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.online {
+    position: relative;
+}
+
+.online::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: lime;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.navbar .menu .submenu {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    left: 0;
+    top: 100%;
+    text-align: left;
+    display: none;
+}
+.navbar li:hover > .submenu {
+    display: block;
+    width: 200px;
+}
+.navbar .submenu li {
+    padding: 25px;
+}
+.submenu a {
+    color: var(--theme-color);
+}
+
+
+.navbar .submenu li:hover {
+    background-color: var(--hover-color);
+}
+
+.submenu .drop-icons {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: var(--theme-color);
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 0.5rem;
+}
+
+.navbar .menu .submenu .submenu-1 {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    left: 100%;
+    top: 20%;
+    text-align: left;
+    width: 200px;
+    display: none;
+}
+
+.navbar .menu .submenu li:hover > .submenu-1 {
+    display: block;
+}
+
+.navbar input[type="checkbox"] {
+    display: none;
+}
+
+.navbar label i {
+    float: right;
+    display: block;
+    color: black;
+}
+
+.navbar .sideMenu .submenu {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    top: 100%;
+    right: 400px;
+    text-align: left;
+    width: 200px;
+    display: none;
+}
+
+.navbar .menu label i,
+.navbar .sideMenu label i {
+    display: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width:725px) {
+    .logo {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .logo img {
+        width: 45px;
+        height: 40px;
+        margin-top: 2px;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    .navbar ul {
+        display: block;
+    }
+
+    header {
+        height: 42px;
+    }
+
+   .navbar {
+        position: fixed;
+        background-color: var(--theme-color);
+        /* height: 100vh; */
+        width: 70vw;
+        top: 0;
+        left: 0;
+        display: block;
+   }
+
+   .navbar li {
+        font-weight: 600;
+        padding-block: 15px;
+        border-bottom: 1px solid white;
+   }
+
+   .navbar .online::after {
+        right: unset;
+        left: 30px;
+   }
+
+   .navbar .menu .submenu,
+   .navbar .menu .submenu .submenu-1,
+   .navbar .sideMenu .submenu {
+        position: unset;
+        background-color: unset;
+        box-shadow: unset;
+        border-radius: unset;
+        overflow: hidden;
+   }
+
+   .submenu a{
+        color: white;
+   }
+
+   .navbar .menu .submenu li:hover,
+   .navbar .sideMenu .submenu li:hover {
+        background-color: unset;
+   }
+
+   .navbar .menu .submenu li,
+   .navbar .sideMenu .submenu li {
+        border-bottom: unset;
+        padding-block: 10px;
+   }
+
+   .navbar li:hover > .submenu,
+   .navbar .submenu li:hover > .submenu-1 {
+        width: 100%;
+   }
+
+   .navbar .menu, .navbar .sideMenu {
+        text-align: left;
+        width: 100%;
+   }
+
+   .navbar .menu li:hover,
+   .navbar .sideMenu li:hover {
+        border-left: 4px solid white;
+   }
+
+   .navbar .menu .submenu li:hover,
+   .navbar .sideMenu .submenu li:hover {
+        border-left: unset;
+   }
+
+   .navbar .menu label i,
+    .navbar .sideMenu label i {
+        display: block;
+        transition: 0.5s;
+    }
+
+    .navbar label input:checked ~ i {
+        transform: rotate(180deg);
+    }
+
+    .navbar label:has(input:checked) ~ ul {
+        height: 0px;
+    }
+    
+
+    /* .navbar li:hover > label > i {
+        transform: rotate(180deg);
+    } */
+
+    .navbar .resNav {
+        display: block;
+        position: absolute;
+        background-color: black;
+        width: 40px;
+        height: 40px;
+        top: 0;
+        left: 100%;
+        padding: 10px;
+    }
+
+    .navbar .resNav span {
+        display: block;
+        background-color: white;
+        width: 20px;
+        height: 2px;
+        margin-block: 3px;
+        transition: 1s;
+    }
+
+    .navbar{
+        transform: translate(-100%, 0);
+    }
+
+    .navbar:has(input[name="resNav"]:checked) {
+        transform: translate(0, 0);
+    }
+
+    .navbar:has(input[name="resNav"]:checked)
+    .resNav span:nth-child(2) {
+        opacity: 0;
+        transition: 0s;
+    }
+
+    .navbar:has(input[name="resNav"]:checked)
+    .resNav span:nth-child(1) {
+        transform: rotate(45deg) translate(3px, 5px);
+    }
+
+    .navbar:has(input[name="resNav"]:checked)
+    .resNav span:nth-child(3) {
+        transform: rotate(-45deg) translate(1px, -5px);
+    }
+}
+
+
+@media screen and (max-width:600px) {
+    .logo {
+        right: 15px;
+    }
+
+    .search {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:402px) {
+    .logo img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .search {
+        width: 100%;
+    }
+}
